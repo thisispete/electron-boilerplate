@@ -1,7 +1,7 @@
 {
-  "name": "electron-babel-register-gulp",
+  "name": "electron-boilerplate",
   "version": "1.0.0",
-  "description": "electron boilerplate using gulp with  babel-register for es6 native inports without transpiling, less, and nunjucks.  ",
+  "description": "electron boilerplate with gulp using babel-register for es6 native imports without transpiling, less, and nunjucks.",
   "main": "index.js",
   "author": "thisispete",
   "license": "UNLICENSED",
