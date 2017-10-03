@@ -1,0 +1,21 @@
+{
+    "extends": "airbnb-base",
+    "plugins": [
+        "import"
+    ],
+    "rules": {
+      "arrow-parens": ["off"],
+      "arrow-body-style": [0, "as-needed"],
+      "class-methods-use-this": 0,
+      "consistent-return": "off",
+      "comma-dangle": "off",
+      "generator-star-spacing": "off",
+      "import/no-extraneous-dependencies": "off",
+      "no-console": 0,
+      "no-use-before-define": "off",
+      "comma-dangle": ["error", "never"],
+      "prefer-destructuring": ["error", {"object": true, "array": false}],
+      "vars-on-top": "off",
+      "no-var": "off"
+    }
+}

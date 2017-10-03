@@ -1,0 +1,33 @@
+{
+  "name": "electron-babel-register-gulp",
+  "version": "1.0.0",
+  "description": "electron boilerplate using gulp with  babel-register for es6 native inports without transpiling, less, and nunjucks.  ",
+  "main": "index.js",
+  "author": "thisispete",
+  "license": "UNLICENSED",
+  "repository": {},
+  "scripts": {
+    "dev": "./node_modules/.bin/electron -r babel-register ."
+  },
+  "devDependencies": {
+    "del": "^3.0.0",
+    "electron": "^1.7.8",
+    "electron-connect": "^0.6.2",
+    "electron-packager": "^9.1.0",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-import": "^2.7.0",
+    "fs": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-less": "^3.3.2",
+    "gulp-nunjucks": "^3.0.0",
+    "gulp-sequence": "^0.4.6",
+    "gulp-sourcemaps": "^2.6.1"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
+    "jquery": "^3.2.1"
+  }
+}
