@@ -7,8 +7,6 @@ import nunjucks from 'gulp-nunjucks';
 import { server } from 'electron-connect';
 import sourcemaps from 'gulp-sourcemaps';
 
-// import concat from 'gulp-concat';
-
 const connect = server.create();
 
 const PATH = {
