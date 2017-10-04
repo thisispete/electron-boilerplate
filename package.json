@@ -7,7 +7,9 @@
   "license": "UNLICENSED",
   "repository": {},
   "scripts": {
-    "dev": "./node_modules/.bin/electron -r babel-register ."
+    "dev": "electron -r babel-register .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac-icon.icns --prune=true --out=release",
+    "package-linux" : "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/linux-icon.png --prune=true --out=release"
   },
   "devDependencies": {
     "del": "^3.0.0",

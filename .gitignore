@@ -85,10 +85,9 @@ nbproject
 node_modules
 bower_components
 generated
-dist
 build
+release
 TODO.md
 npm-debug.log.*
-
 test
 **/*-lock.json

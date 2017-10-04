@@ -14,7 +14,7 @@ const PATH = {
   HTML_MAIN: 'src/index.html',
   CSS_MAIN: 'src/styles.less',
   JS_MAIN: 'src/app.js',
-  DEST: 'dist'
+  DEST: 'build'
 };
 
 gulp.task('js', () => {
@@ -53,6 +53,11 @@ gulp.task('watch', () => {
   gulp.watch([PATH.HTML_MAIN, PATH.DATA], ['html']);
 });
 
-gulp.task('server', gulpSequence(['serve', 'watch']));
+gulp.task('set-dev-node-env', () => {
+  process.env.NODE_ENV = 'development';
+});
+
+
+gulp.task('server', gulpSequence(['serve', 'watch', 'set-dev-node-env']));
 
 gulp.task('default', gulpSequence('clean', ['js', 'less', 'html'], 'server'));

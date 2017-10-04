@@ -12,10 +12,3 @@ electron boilerplate with gulp using babel-register for es6 native imports witho
 
 ## Build Release
 `electron-packager .`
-
-
-## TODO:
-- build for different platforms (is there a config system for electron-packager?)
-- copy over static assets for dist / bundle
-- app icon setup
-- app menu / settings
