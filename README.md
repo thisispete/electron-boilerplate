@@ -11,4 +11,5 @@ electron boilerplate with gulp using babel-register for es6 native imports witho
 
 
 ## Build Release
-`electron-packager .`
+`npm run package-mac`
+`npm run package-linux`
