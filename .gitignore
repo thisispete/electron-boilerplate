@@ -49,7 +49,6 @@
 # OS or Editor folders #
 ########################
 .DS_Store*
-Icon?
 ehthumbs.db
 Thumbs.db
 .classpath
