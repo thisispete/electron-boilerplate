@@ -13,10 +13,14 @@ app.setMaxListeners(0);
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
-    // kiosk: true,
     show: true,
     width: 1024,
-    height: 728
+    height: 728,
+    minWidth: 500,
+    minHeight: 200,
+    // titleBarStyle: 'hidden',
+    // frame: false,
+    acceptFirstMouse: true
   });
   mainWindow.loadURL(`file://${__dirname}/build/index.html`);
 

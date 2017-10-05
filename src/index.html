@@ -1,4 +1,32 @@
-{% extends "./templates/base.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./photon.css">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <title>boilerplate</title>
+  </head>
+  <body>
+    <div class="window">
+      <div class="window-content">
+        <h1>Hello.</h1>
+      </div>
+      <footer class="toolbar toolbar-footer">
+        <div class="title">Footer</div>
+      </footer>
+    </div>
 
-{% block body %}
-{% endblock %}
+
+    </div>
+    <!-- build:remove -->
+    <!-- Connect to server process -->
+    <script>require('electron-connect').client.create()</script>
+    <!-- end:build -->
+    <script>
+      // install babel hooks in the renderer process
+      require('babel-register');
+      require('./app');
+    </script>
+  </body>
+</html>

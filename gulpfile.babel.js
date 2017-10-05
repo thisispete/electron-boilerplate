@@ -1,44 +1,38 @@
 import del from 'del';
-import fs from 'fs';
 import gulp from 'gulp';
 import gulpSequence from 'gulp-sequence';
-import less from 'gulp-less';
-import nunjucks from 'gulp-nunjucks';
 import { server } from 'electron-connect';
-import sourcemaps from 'gulp-sourcemaps';
 
 const connect = server.create();
 
 const PATH = {
-  DATA: 'src/data.json',
   HTML_MAIN: 'src/index.html',
-  CSS_MAIN: 'src/styles.less',
+  CSS_MAIN: 'src/styles.css',
   JS_MAIN: 'src/app.js',
   DEST: 'build'
 };
 
 gulp.task('js', () => {
-  return gulp.src(PATH.JS_MAIN)
+  gulp.src(PATH.JS_MAIN)
     .pipe(gulp.dest(PATH.DEST));
 });
 
 gulp.task('html', () => {
-  const data = JSON.parse(fs.readFileSync(PATH.DATA));
-  return gulp.src(PATH.HTML_MAIN)
-    .pipe(nunjucks.compile(data))
+  gulp.src(PATH.HTML_MAIN)
     .pipe(gulp.dest(PATH.DEST));
 });
 
-gulp.task('less', () => {
-  return gulp.src(PATH.CSS_MAIN)
-    .pipe(sourcemaps.init())
-    .pipe(less())
-    .pipe(sourcemaps.write('.'))
+gulp.task('css', () => {
+  gulp.src(PATH.CSS_MAIN)
     .pipe(gulp.dest(PATH.DEST));
+  gulp.src('./node_modules/photon/dist/css/photon.css')
+    .pipe(gulp.dest(PATH.DEST));
+  gulp.src('./node_modules/photon/dist/fonts/*')
+    .pipe(gulp.dest(`${PATH.DEST}/fonts`));
 });
 
 gulp.task('clean', () => {
-  return del(['dist/**/*']);
+  del(['dist/**/*']);
 });
 
 gulp.task('serve', () => {
@@ -49,8 +43,8 @@ gulp.task('serve', () => {
 
 gulp.task('watch', () => {
   gulp.watch(PATH.JS_MAIN, ['js']);
-  gulp.watch(PATH.CSS_MAIN, ['less']);
-  gulp.watch([PATH.HTML_MAIN, PATH.DATA], ['html']);
+  gulp.watch(PATH.CSS_MAIN, ['css']);
+  gulp.watch([PATH.HTML_MAIN], ['html']);
 });
 
 gulp.task('set-dev-node-env', () => {
@@ -60,4 +54,4 @@ gulp.task('set-dev-node-env', () => {
 
 gulp.task('server', gulpSequence(['serve', 'watch', 'set-dev-node-env']));
 
-gulp.task('default', gulpSequence('clean', ['js', 'less', 'html'], 'server'));
+gulp.task('default', gulpSequence('clean', ['js', 'css', 'html'], 'server'));
